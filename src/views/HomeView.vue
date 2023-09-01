@@ -1,5 +1,6 @@
 <template>
   <div class="">
+    <p>{{ isTutionFeePaid }}</p>
     <div v-if="!isSubmited" class="container">
       <h1>Customized SOP Generator</h1>
       <!-- <button @click="Submit">send</button> -->
@@ -252,7 +253,7 @@
                 type="radio"
                 name="flexRadio"
                 id="flexRadioYes"
-                value="Yes"
+                value="true"
                 v-model="isTutionFeePaid"
               />
               <label class="form-check-label" for="flexRadioYes"> Yes </label>
@@ -261,10 +262,9 @@
               <input
                 class="form-check-input"
                 type="radio"
-                name="flexRadio"
+                name="flexRadio1"
                 id="flexRadioDefault2"
-                checked
-                value="No"
+                value="false"
                 v-model="isTutionFeePaid"
               />
               <label class="form-check-label" for="flexRadioDefault2">
@@ -298,7 +298,7 @@
                 name="flexRadioGIC"
                 id="flexRadioGIC"
                 v-model="isGic"
-                value="Yes"
+                value="true"
               />
               <label class="form-check-label" for="flexRadioGic2"> Yes </label>
             </div>
@@ -306,11 +306,10 @@
               <input
                 class="form-check-input"
                 type="radio"
-                name="flexRadioGIC"
+                name="flexRadioGIC2"
                 id="flexRadioGic2"
-                checked
                 v-model="isGic"
-                value="Yes"
+                value="false"
               />
               <label class="form-check-label" for="flexRadioGic2"> No </label>
             </div>
@@ -331,27 +330,34 @@
           </div>
         </div>
         <div>
-          <button @click="Submit()" class="btn btn-success" type="submit">
-            Submit
-          </button>
+          <button class="btn btn-success" type="submit">Submit</button>
         </div>
       </form>
     </div>
-    <div
-      v-if="isSubmited"
-      class="d-flex align-items-center justify-content-center vh-100"
-    >
-      <p>You will receive your an attachment to your mail</p>
-      <button
-        class="btn btn-primary"
-        @click="
-          () => {
-            isSubmited = false;
-          }
-        "
-      >
-        Submit Another response
-      </button>
+    <div class="container d-flex justify-content-center mb-3" v-if="isSubmited">
+      <div class="card" style="width: 18rem">
+        <img
+          class="card-img-top"
+          src="../assets/image.png"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Response Stored</h5>
+          <p class="card-text">
+            You will receive your an attachment to your mail shortly
+          </p>
+          <button
+            class="btn btn-primary"
+            @click="
+              () => {
+                isSubmited = false;
+              }
+            "
+          >
+            Submit Another response
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -382,16 +388,15 @@ export default {
       readingScore: 7,
       speakingScore: 7,
       writingScore: 7,
-      isTutionFeePaid: true,
+      isTutionFeePaid: null,
       feePaidValue: 2000,
-      isGic: true,
+      isGic: null,
       paidGicValue: 5000,
     };
   },
   methods: {
     Submit() {
       console.log("submit");
-      console.log(this.study);
       const data = {
         email: this.email,
         fullName: this.fullName,
@@ -416,10 +421,30 @@ export default {
       // https://effizient-backend-app.onrender.com
       try {
         axios
-          .post("http://localhost:3010/sendformdata", { data })
+          .post("https://effizient-backend-app.onrender.com/sendformdata", {
+            data,
+          })
           .then((response) => {
             console.log(response);
-            // this.isSubmited = true;
+            this.isSubmited = true;
+            this.email = "";
+            this.fullName = "";
+            this.age = null;
+            this.highestEducation = "";
+            this.graduationCollege = "";
+            this.stream = "";
+            this.experience = "";
+            (this.admittedUniversityName = ""), (this.programName = "");
+            (this.yourCountryName = ""),
+              (this.futureGoals = ""),
+              (this.readingScore = ""),
+              (this.speakingScore = ""),
+              (this.writingScore = ""),
+              (this.listeningScore = ""),
+              (this.isTutionFeePaid = ""),
+              (this.feePaidValue = ""),
+              (this.isGic = ""),
+              (this.paidGicValue = "");
           });
       } catch (error) {
         console.log(error);
