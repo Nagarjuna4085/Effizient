@@ -330,7 +330,14 @@
           </div>
         </div>
         <div>
-          <button class="btn btn-success" type="submit">Submit</button>
+          <button class="btn btn-success" type="submit">
+            <div v-if="loader">
+              <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
+            <div v-else>Submit</div>
+          </button>
         </div>
       </form>
     </div>
@@ -344,7 +351,7 @@
         <div class="card-body">
           <h5 class="card-title">Response Stored</h5>
           <p class="card-text">
-            You will receive your an attachment to your mail shortly
+            You will receive your attachment to your mail shortly
           </p>
           <button
             class="btn btn-primary"
@@ -372,6 +379,7 @@ export default {
   components: {},
   data() {
     return {
+      loader: false,
       isSubmited: false,
       email: "snagarjuna2001@gmail.com",
       fullName: "Nagarjuna",
@@ -396,6 +404,7 @@ export default {
   },
   methods: {
     Submit() {
+      this.loader = true;
       console.log("submit");
       const data = {
         email: this.email,
@@ -425,6 +434,7 @@ export default {
             data,
           })
           .then((response) => {
+            this.loader = false;
             console.log(response);
             this.isSubmited = true;
             this.email = "";
@@ -448,6 +458,7 @@ export default {
           });
       } catch (error) {
         console.log(error);
+        this.loader = false;
       }
     },
   },
