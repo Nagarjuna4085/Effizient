@@ -2,11 +2,14 @@
   <div class="">
     <div v-if="!isSubmited" class="container">
       <h1>Customized SOP Generator</h1>
+      <button @click="Submit">send</button>
       <form action="javascript:;" @submit="Submit()">
         <div class="row">
           <!-- //email -->
           <div class="mb-3 col-sm-12 col-md-6 col-lg-4">
-            <label for="exampleInputEmail1" class="form-label">Email </label>
+            <label for="exampleInputEmail1" class="form-label"
+              >Email <span class="require">*</span>
+            </label>
             <input
               type="text"
               class="form-control"
@@ -18,7 +21,9 @@
           </div>
           <!-- //fullname -->
           <div class="mb-3 col-sm-12 col-md-6 col-lg-4">
-            <label for="exampleInputName" class="form-label">Full Name</label>
+            <label for="exampleInputName" class="form-label"
+              >Full Name <span class="require">*</span></label
+            >
 
             <input
               type="text"
@@ -31,7 +36,9 @@
           </div>
           <!-- age -->
           <div class="mb-3 col-sm-12 col-md-6 col-lg-4">
-            <label for="exampleInputAge" class="form-label">Age</label>
+            <label for="exampleInputAge" class="form-label"
+              >Age <span class="require">*</span></label
+            >
             <input
               type="Number"
               class="form-control"
@@ -44,7 +51,7 @@
           <!-- Highest Level of Education -->
           <div class="mb-3 col-sm-12 col-md-6 col-lg-4">
             <label for="exampleInputEducation" class="form-label"
-              >Highest Level of Education</label
+              >Highest Level of Education <span class="require">*</span></label
             >
 
             <select
@@ -65,8 +72,8 @@
               education -->
           <div class="mb-3 col-sm-12 col-md-6 col-lg-4">
             <label for="exampleInputHighestStudy" class="form-label"
-              >Institute where you completed your highest level of
-              education</label
+              >Institute where you completed your highest level of education
+              <span class="require">*</span></label
             >
             <input
               type="text"
@@ -80,7 +87,7 @@
           <!-- What did you study -->
           <div class="mb-3 col-sm-12 col-md-6 col-lg-4">
             <label for="exampleInputStudyDesc" class="form-label"
-              >What did you study
+              >What did you study <span class="require">*</span>
             </label>
             <input
               type="text"
@@ -96,7 +103,7 @@
             <label for="exampleInputStudyDesc" class="form-label"
               >Do you have any relevant work experience? <br />
               Write None if no work experience. Provide the following details if
-              yes: <br />
+              yes: <span class="require">*</span><br />
               <!-- <ol>
                 <li>Job Title</li>
                 <li>Company Name</li>
@@ -122,6 +129,7 @@
           <div class="mb-3 col-sm-12 col-md-6 col-lg-4">
             <label for="exampleInputStudyDesc" class="form-label"
               >What institute did you get admitted to in Canada?
+              <span class="require">*</span>
             </label>
             <input
               type="text"
@@ -136,6 +144,7 @@
           <div class="mb-3 col-sm-12 col-md-6 col-lg-4">
             <label for="exampleInputStudyDesc" class="form-label"
               >What is your program of study in Canada?
+              <span class="require">*</span>
             </label>
             <input
               type="text"
@@ -150,6 +159,7 @@
           <div class="mb-3 col-sm-12 col-md-6 col-lg-4">
             <label for="exampleInputStudyDesc" class="form-label"
               >Which country are you applying from?
+              <span class="require">*</span>
             </label>
             <input
               type="text"
@@ -163,7 +173,7 @@
           <!-- What are your future goals? -->
           <div class="mb-3 col-sm-12 col-md-6 col-lg-4">
             <label for="exampleInputStudyDesc" class="form-label"
-              >What are your future goals?
+              >What are your future goals? <span class="require">*</span>
             </label>
             <input
               type="text"
@@ -177,7 +187,7 @@
           <!-- English Scores - Listening -->
           <div class="mb-3 col-sm-12 col-md-6 col-lg-4">
             <label for="exampleInputStudyDesc" class="form-label"
-              >English Scores - Listening
+              >English Scores - Listening <span class="require">*</span>
             </label>
             <input
               type="text"
@@ -191,7 +201,7 @@
           <!-- English Scores - Reading -->
           <div class="mb-3 col-sm-12 col-md-6 col-lg-4">
             <label for="exampleInputStudyDesc" class="form-label"
-              >English Scores - Reading
+              >English Scores - Reading <span class="require">*</span>
             </label>
             <input
               type="text"
@@ -205,7 +215,7 @@
           <!-- English Scores - Speaking -->
           <div class="mb-3 col-sm-12 col-md-6 col-lg-4">
             <label for="exampleInputStudyDesc" class="form-label"
-              >English Scores - Speaking
+              >English Scores - Speaking <span class="require">*</span>
             </label>
             <input
               type="text"
@@ -219,7 +229,7 @@
           <!-- English Scores - writing -->
           <div class="mb-3 col-sm-12 col-md-6 col-lg-4">
             <label for="exampleInputStudyDesc" class="form-label"
-              >English Scores - writing
+              >English Scores - writing <span class="require">*</span>
             </label>
             <input
               type="text"
@@ -234,6 +244,7 @@
           <div class="mb-3 col-sm-12 col-md-6 col-lg-4">
             <label for="exampleInputStudyDesc" class="form-label"
               >Did you pay your first year tuition?
+              <span class="require">*</span>
             </label>
             <div class="form-check">
               <input
@@ -264,7 +275,7 @@
           <!-- How much tuition fee did you pay? -->
           <div class="mb-3 col-sm-12 col-md-6 col-lg-4">
             <label for="exampleInputStudyDesc" class="form-label"
-              >How much tuition fee did you pay?
+              >How much tuition fee did you pay? <span class="require">*</span>
             </label>
             <input
               type="Number"
@@ -278,7 +289,7 @@
           <!-- Did you do a GIC? -->
           <div class="mb-3 col-sm-12 col-md-6 col-lg-4">
             <label for="exampleInputGIC" class="form-label"
-              >Did you do a GIC?
+              >Did you do a GIC? <span class="require">*</span>
             </label>
             <div class="form-check">
               <input
@@ -307,7 +318,7 @@
           <!-- How much did you pay towards GIC? -->
           <div class="mb-3 col-sm-12 col-md-6 col-lg-4">
             <label for="exampleInputStudyDesc" class="form-label"
-              >How much did you pay towards GIC?
+              >How much did you pay towards GIC? <span class="require">*</span>
             </label>
             <input
               type="text"
@@ -320,13 +331,19 @@
           </div>
         </div>
         <div>
-          <button class="btn btn-success" type="submit">Submit</button>
+          <button @click="Submit()" class="btn btn-success" type="submit">
+            Submit
+          </button>
         </div>
       </form>
     </div>
-    <div>
-      you will receive a mail
+    <div
+      v-if="isSubmited"
+      class="d-flex align-items-center justify-content-center vh-100"
+    >
+      <p>You will receive your an attachment to your mail</p>
       <button
+        class="btn btn-primary"
         @click="
           () => {
             isSubmited = false;
@@ -340,6 +357,7 @@
 </template>
 
 <script>
+import axios from "axios";
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
 
@@ -349,32 +367,79 @@ export default {
   data() {
     return {
       isSubmited: false,
-      email: "",
-      fullName: "",
-      age: null,
-      highestEducation: "",
-      graduationCollege: "",
-      stream: "",
-      experience: "",
-      admittedUniversityName: "",
-      programName: "",
-      yourCountryName: "",
-      futureGoals: "",
-      listeningScore: null,
-      readingScore: null,
-      speakingScore: null,
-      writingScore: null,
-      isTutionFeePaid: false,
-      feePaidValue: null,
-      isGic: false,
-      paidGicValue: null,
+      email: "snagarjuna2001@gmail.com",
+      fullName: "Nagarjuna",
+      age: 23,
+      highestEducation: "Bachelors Degree",
+      graduationCollege: "JNTUA",
+      stream: "computer science",
+      experience: "in web development",
+      admittedUniversityName: "toronto university",
+      programName: "masters in artificial intellegence",
+      yourCountryName: "India",
+      futureGoals: "full stack developer",
+      listeningScore: 7,
+      readingScore: 7,
+      speakingScore: 7,
+      writingScore: 7,
+      isTutionFeePaid: true,
+      feePaidValue: 2000,
+      isGic: true,
+      paidGicValue: 5000,
     };
   },
   methods: {
     Submit() {
       console.log("submit");
       console.log(this.study);
+      const data = {
+        email: this.email,
+        fullName: this.fullName,
+        age: this.age,
+        highestEducation: this.highestEducation,
+        graduationCollege: this.graduationCollege,
+        stream: this.stream,
+        experience: this.email,
+        admittedUniversityName: this.admittedUniversityName,
+        programName: this.programName,
+        yourCountryName: this.yourCountryName,
+        futureGoals: this.futureGoals,
+        listeningScore: this.listeningScore,
+        readingScore: this.readingScore,
+        speakingScore: this.speakingScore,
+        writingScore: this.writingScore,
+        isTutionFeePaid: this.isTutionFeePaid,
+        feePaidValue: this.feePaidValue,
+        isGic: this.isGic,
+        paidGicValue: this.paidGicValue,
+      };
+      // https://effizient-backend-app.onrender.com
+      try {
+        axios
+          .post("https://effizient-backend-app.onrender.com/sendformdata", {
+            data,
+          })
+          .then((response) => {
+            console.log(response);
+            this.isSubmited = true;
+          });
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };
 </script>
+<style>
+form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+label {
+  font-weight: bold;
+}
+.require {
+  color: red;
+}
+</style>
