@@ -2,7 +2,7 @@
   <div class="">
     <div v-if="!isSubmited" class="container">
       <h1>Customized SOP Generator</h1>
-      <button @click="Submit">send</button>
+      <!-- <button @click="Submit">send</button> -->
       <form action="javascript:;" @submit="Submit()">
         <div class="row">
           <!-- //email -->
@@ -416,12 +416,10 @@ export default {
       // https://effizient-backend-app.onrender.com
       try {
         axios
-          .post("https://effizient-backend-app.onrender.com/sendformdata", {
-            data,
-          })
+          .post("http://localhost:3010/sendformdata", { data })
           .then((response) => {
             console.log(response);
-            this.isSubmited = true;
+            // this.isSubmited = true;
           });
       } catch (error) {
         console.log(error);
